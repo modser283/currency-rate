@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="pricelist_view_inherit" model="ir.ui.view">
+        <field name="name">product.pricelist.inherit</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="currency_rate"/>
+                </xpath>
+<!--            <field name="currency_id" position="after">-->
+<!--                    <field name="currency_rate"/>-->
+<!--            </field>-->
+            <xpath expr="//field[@name='item_ids']/tree/field[@name='fixed_price']" position="after">
+                <field name="new_price"/>
+            </xpath>
+        </field>
+
+    </record>
+</odoo>
